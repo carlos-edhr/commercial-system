@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>FilterAuthentication</filter-name>
+        <filter-class>com.carlosehr.commercialsystem.filters.FilterAuthentication</filter-class>
+    </filter>
+    <error-page>
+        <exception-type>com.carlosehr.commercialsystem.exception.ErrorLoginException</exception-type>
+        <location>/WEB-INF/error-pages/errorLogin.jsp</location>
+    </error-page>
+    <error-page>
+        <exception-type>com.carlosehr.commercialsystem.exception.ErrorRegisterException</exception-type>
+        <location>/WEB-INF/error-pages/errorRegister.jsp</location>
+    </error-page>
+    <error-page>
+        <exception-type>com.carlosehr.commercialsystem.exception.NotLoggedException</exception-type>
+        <location>/WEB-INF/error-pages/errorLogin.jsp</location>
+    </error-page>
+    <filter-mapping>
+        <filter-name>FilterAuthentication</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
